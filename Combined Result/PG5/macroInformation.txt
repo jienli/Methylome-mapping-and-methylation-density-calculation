@@ -1,0 +1,67 @@
+PG5
+
+Total number of methylated genes(include promoter)      1703
+Total number of non-methylated genes(include promoter)  556
+
+total # of m6A in genes is               9393
+total # of m6A in promoters is           551
+total # of m6A not in gene/promotor is   180
+total # of m6A in entire genome is       10124
+
+# of genes+proms without 6mA:    556
+# of genes+proms with 6mA:       1703
+# of genes with 6mA:             1632
+# of promoters with 6mA:         250
+
+Average 6mA density (per bp) is:         0.002425878206728721
+Average 6mA density (per Adenine) is:    0.008044209781930722
+
+Among genes(and pros) that have no methylation: 
+Essentials:     0 0.0
+Non-Essentials: 0 0.0
+
+Among genes(and pros) that have methylation: 
+Essentials:     0 0.0
+Non-Essentials: 0 0.0
+
+Among essential genes: 
+The average A   density (per bp)      (pro)  is: 0
+The average A   density (per bp)      (gene) is: 0
+The average 6mA density (per Adenine) (pro)  is: 0
+The average 6mA density (per Adenine) (gene) is: 0
+# promoters that have    6mA: 0 0
+# promoters that have no 6mA: 0 0
+# genes     that have    6mA: 0 0
+# genes     that have no 6mA: 0 0
+
+Among non-essential genes: 
+The average A   density (per bp)      (pro)  is: 0
+The average A   density (per bp)      (gene) is: 0
+The average 6mA density (per Adenine) (pro)  is: 0
+The average 6mA density (per Adenine) (gene) is: 0
+# promoters that have    6mA: 0 0
+# promoters that have no 6mA: 0 0
+# genes     that have    6mA: 0 0
+# genes     that have no 6mA: 0 0
+
+Among uncertain genes: 
+The average A   density (per bp)      (pro)  is: 0
+The average A   density (per bp)      (gene) is: 0
+The average 6mA density (per Adenine) (pro)  is: 0
+The average 6mA density (per Adenine) (gene) is: 0
+# promoters that have    6mA: 0 0
+# promoters that have no 6mA: 0 0
+# genes     that have    6mA: 0 0
+# genes     that have no 6mA: 0 0
+
+Among N/A genes: 
+The average A   density (per bp)      (pro)  is: 0.3401411352632121
+The average A   density (per bp)      (gene) is: 0.2955916153351108
+The average 6mA density (per Adenine) (pro)  is: 0.00545165442568335
+The average 6mA density (per Adenine) (gene) is: 0.008615461175994899
+# promoters that have    6mA: 31 0.125
+# promoters that have no 6mA: 217 0.875
+# genes     that have    6mA: 116 0.46774193548387094
+# genes     that have no 6mA: 132 0.532258064516129
+
+The gene with the most m6A is ['EQH19_03290'][2, 40]
