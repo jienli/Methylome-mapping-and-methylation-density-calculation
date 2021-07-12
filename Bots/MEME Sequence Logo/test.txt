@@ -1,0 +1,17 @@
+>Sequence1
+ACGATTGAT
+
+>Sequence2
+ACAATTGAT
+
+>Sequence3
+ACGATGGAT
+
+>Sequence4
+ACGATTGTA
+
+>Sequence5
+ACCGTTGAT
+
+>Sequence6
+ACGATTGAT

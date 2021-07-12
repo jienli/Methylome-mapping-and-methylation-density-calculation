@@ -1,0 +1,2424 @@
+X-Antivirus: avast (VPS 20033000)
+X-Antivirus-Status: Clean
+Delivered-To: libch@gm.bc.edu
+Received: by 2002:a4a:d34f:0:0:0:0:0 with SMTP id d15csp1826614oos;
+        Mon, 30 Mar 2020 13:23:16 -0700 (PDT)
+X-Google-Smtp-Source: ADFU+vsWm4DPF6v8zRgDy2ZOhfr4o1yJCvg+JEvyrh8dYfXCFW+zWu8fH/ZUxU/UbcWSTMLPfBfR
+X-Received: by 2002:ac8:72da:: with SMTP id o26mr1832769qtp.261.1585599796351;
+        Mon, 30 Mar 2020 13:23:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1585599796; cv=none;
+        d=google.com; s=arc-20160816;
+        b=d0AM8xZE6ugW+S8hZ0y4aZqszJf7nn5C0CCT91DIGHE9oc1fjNy1LrzwkjWbj+pKVJ
+         HNtkfnmIgmfremC8ZxkURLcwQwml7fB2KTk+4826STOcF48wcUrkrFzRcmDF34tUjy4q
+         BJ5QbluXvQ84djYHuLcTK0VYeX0cJEUGFDHJjvwmwS/4Zt74415eRJrtIKXMteUbdxD+
+         z+ebFyu+OXl71Z8k7qdiN5/eTCeADrCmXC4RZjKZAeMx/H/Ua0Mv/YXToKf6Q2F465j5
+         tAL0uJNDRhh+/MN9XJRS8eOtWpxmGUheEl3o1+/QETu3T87UQir9Qb0NffQmdHWudpA+
+         xqsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=q6iTntkWZnFCby8RAtY8SGOyQpDm0kfWBC3fKsMNYv8=;
+        b=nLhkEN8TK4wven/U6houOVtHWn8970Et+sIS/3qS5yxShUBy4i+NsRVrwof6n3oyQI
+         +w4WaakDTjQKAbOJJiVLfjRQkkQbNK5uT7U3gz8vz+eu5Cut/B5l/4FuHerI3qbEB3g1
+         bawSCNZtPxXPCikIGcwYZWcOC5UXQc22PAbL50NWjMbTBnQx1xvlqdXR5jQP+uSIsPAJ
+         5yYea8cciWDI8ALAjnAnDtXx6HNsYQO11FCD4CsQLNQnXZ2jM2ncaYXB1euo08VtEHzC
+         gBgfy6lE0ATj/jKvlThwTVx4FBcEjsCci4RviQo+rIwlHGDB33S/9ePTQnwdAZMvTiAF
+         X4hg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@bc-edu.20150623.gappssmtp.com header.s=20150623 header.b=iuSCp6so;
+       spf=pass (google.com: domain of rosconi@bc.edu designates 209.85.167.44 as permitted sender) smtp.mailfrom=rosconi@bc.edu
+Return-Path: <rosconi@bc.edu>
+Received: from outmail4.bc.edu (outmail4.bc.edu. [136.167.2.48])
+        by mx.google.com with ESMTPS id d204si8790413qke.80.2020.03.30.13.23.15
+        for <libch@gm.bc.edu>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 30 Mar 2020 13:23:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rosconi@bc.edu designates 209.85.167.44 as permitted sender) client-ip=209.85.167.44;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@bc-edu.20150623.gappssmtp.com header.s=20150623 header.b=iuSCp6so;
+       spf=pass (google.com: domain of rosconi@bc.edu designates 209.85.167.44 as permitted sender) smtp.mailfrom=rosconi@bc.edu
+Authentication-Results: bc.edu;
+	spf=pass smtp.mailfrom=rosconi@bc.edu
+Received: from mail-lf1-f44.google.com (mail-lf1-f44.google.com [209.85.167.44])
+	by krait.bc.edu (8.16.0.27/8.16.0.27) with ESMTPS id 02UKNEq9069692
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <libch@bc.edu>; Mon, 30 Mar 2020 16:23:15 -0400
+Received: by mail-lf1-f44.google.com with SMTP id e7so15385604lfq.1
+        for <libch@bc.edu>; Mon, 30 Mar 2020 13:23:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bc-edu.20150623.gappssmtp.com; s=20150623;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=q6iTntkWZnFCby8RAtY8SGOyQpDm0kfWBC3fKsMNYv8=;
+        b=iuSCp6soC6desbWC2n+rCqRPRQbF/e2K4pRtaY0AyArQE0yrMnR3epfZljuiCf8U7V
+         Qm2gy1Ut5cIuZHBfOJxWZrvlorpZoDvUaAm8Eb44lxXhdmuvIA+hq7QCcqnV6ONMHJVG
+         AJ3kQbZqqcUv5a1wjn0pZ3vQmIuKSFPQf5Bro+6lQK81WroAzV0gJgWyxRDBVIbeU/NY
+         u/cfYuRTIdwg073h7Myr4tfy2gaj/9Eq2UVqWWfD20MInKIqXpPHCNAy9TVoyCpEgyT3
+         wDVBVNBiuTIwn33Nzk0NikTcac//fuCHJt/Ujw+JqOejDnr6a+4N+wIEEW7N1qYrKnCO
+         TrGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=q6iTntkWZnFCby8RAtY8SGOyQpDm0kfWBC3fKsMNYv8=;
+        b=lVMdwzoXqChzW+vSJQrkwKUWNo4kOBkVX/JNLsBc4dUEmEERXT5sBfy4M5P3dCMgeD
+         XEL3K7yA1vaKX190wcQDr11Xf7khBvySCZiOt+6CaEm5GHIozXWcIvBd0h9Pni3dEMe2
+         Ibvoqu44FFlhc9i6pHjEOdGFDq8LOp79spTOJeyolJqJUdl67JW+5nzNsFIqaCO9NPhX
+         w6lcoiyRnlf4yLdLVAV+J8EuAPIZVjZyUtsVAkpEKng2kPS6mwzQPWQIu/bJdZEATsp4
+         Eft/YUBaPVn4z0SL7rudjD3zuXNyKB1zcoI9uBb6080+LxDDAFLA6toK55pi6ZCBJTKx
+         I/NQ==
+X-Gm-Message-State: AGi0PuavksHUMgmzLqY5myt0ePSQ7zCo3sXqoEjOu551SWh3yvdyKsAZ
+	ELVs97fKw07JlPhtvqToAtaLV6grGgdpWGLJXG3+cUulIluH+E4fmVgPQced3P+lrFeSapNDfz4
+	jEq5u0jJ/uB/Xy4c=
+X-Received: by 2002:a19:844f:: with SMTP id g76mr8957676lfd.112.1585599792972;
+ Mon, 30 Mar 2020 13:23:12 -0700 (PDT)
+MIME-Version: 1.0
+References: <BL0PR1901MB20191066494852E131F4AF7EA5730@BL0PR1901MB2019.namprd19.prod.outlook.com>
+In-Reply-To: <BL0PR1901MB20191066494852E131F4AF7EA5730@BL0PR1901MB2019.namprd19.prod.outlook.com>
+From: Federico Rosconi <rosconi@bc.edu>
+Date: Mon, 30 Mar 2020 16:23:01 -0400
+Message-ID: <CAEKGsEoVBUTpc0NfuBaF7PyHGvRO0-N98hkGi=Hse4F5EUmNZg@mail.gmail.com>
+Subject: Fwd: S. pnumo REBASE links
+To: Jien Li <libch@bc.edu>
+Content-Type: multipart/alternative; boundary="0000000000006a993905a21838a2"
+X-Kellog: 1
+X-CLX-Shades: MLX
+X-CLX-Response: 1TFkXGx0SEQpMehcaEQpZRBdpZm9wWWJiAVliXxEKWFgXZ2lFUhldYGVBTBI
+ RCnhOF2BOaGVlGnJ4GllgEQp5TBdoaFgachsFS30eeREKeUMXekFkXmJ8X0RBZGARCkNIFwcSEQ
+ pDWRcHGx4ZEQpDSRcaBBoaGhEKWU0XZ2ZyEQpZSRcacRoQGncGGx8ScRkdEBp3BhgaBhoRClleF
+ 2hueREKSUYXSEVZXkVESUVGRnVaWEVOX0leQ0VEBx4RCkNOF3lDT1J5fXxBB3xiZWtLX1NtT1ka
+ aENtTxtOTGJYYFBSEQpYXBcfBBoEGxMdBxxLGRtOHxpJBRsaBBsbGgQfGgQbHh8QGx4aHxoRCl5
+ ZF3xeBURlEQpNXBcYGRsRCkxaF2hpa01rEQpMRhdsa2sRCkJPF2JkT10eZHxNX1JcEQpDWhcYGh
+ MEEh8EGxwdBB4eEQpCXhcbEQpCXBcaEQpCRRdsHG9hH0B9TkROHxEKQk4XYE5oZWUacngaWWARC
+ kJMF2dpRVIZXWBlQUwSEQpCbBdtW2FhUGleHFxeRBEKQkAXY05YbW1zE0dZYxIRCkJYF2BfXk98
+ UnxCfF8FEQpNXhcbEQpaWBceEQpwZxdgRm1fEnp9eFJFQBAZGhEKcGgXaWB7aFtaQ1xEWlkQGRo
+ RCnBoF2t7H0YSUFlpUB9BEBkaEQpwaBdsXR1+Th99bUB6YhAZGhEKcGgXbXlwXRJjeGVQeBsQGR
+ oRCnBoF2dSf28aElBuGmZHEBkaEQpwfxdsZV9MHkkFTkVMfhASHxEKcH8XZEtTeX1sc2VrcxoQG
+ RoRCnB/F3oSYFxvGF8fUx4YEBsYHBEKcH0XZB1BG0lyb2tmfVgQGRoRCnB9F2hHZlJBSxhwW3JZ
+ EBkaEQpwfRdpaXN8eXx6XGZJUxAZGhEKcH0XZWVoehhFUHNYcGMQGRoRCnB9F3pIc2FiWEFCAXJ
+ CEBkaEQpwfRdoHHB6bxt9ZEATHBAZGhEKcH0XbEYTbxNQY25cTF8QGRoRCnB9F29hSxJ6SWNwZR
+ NbEBkaEQpwfRdtBVh6bRpkTUh5WhAZGhEKcH0XelNkQV5lb35BZ0IQGRoRCnB9F2BsYV0aTl57Q
+ mt9EBkaEQpwfRdicx9gZhJ5bBsaQxAZGhEKcH0XYmRFcmFHSEBESUsQGRoRCnB9F217WEJ8GEd5
+ RFlLEBkaEQpwfRdlH0FCQx5PUl5oXRAZGhEKcH0XbGdobExsSUBLSEYQGRoRCnB9F2FGH05OY3h
+ Mc19YEBkaEQpwbBdgS11wWUZDSWJrZxAZGhEKcEwXZkN7Qh5BHmZFBWQQGRoRCm1+FxsRClhNF0
+ sRIA==
+X-Proofpoint-GoogleApps-BCInternal: rule=quarantine_safe policy=quarantine score=0 classifier= adjust=0
+ reason=safe scancount=1 engine=8.0.1-2002250000
+ definitions=main-2003300173 ID 303qhh0410 on krait.bc.edu-10000_instance1
+ (192.168.1.12)
+X-Proofpoint-SPF-Result: pass
+X-Proofpoint-SPF-Record: v=spf1 ip4:136.167.20.0/26 ip4:136.167.0.64/26 ip4:136.167.2.0/23
+ ip4:136.167.4.0/23 ip4:136.167.7.0/24 ip4:136.167.13.0/24
+ ip4:136.167.14.0/23 ip4:136.167.18.0/24 ip4:64.74.237.230/31
+ ip4:147.126.25.24 ip4:209.134.63.206 ip4:67.20.172.199 ip4:67.20.172.212
+ ip4:67.20.172.245 ip4:173.252.132.164 ip4:173.252.132.184
+ ip4:136.167.10.223 ip4:173.252.132.179 include:_spf.google.com
+ include:_spf.qualtrics.com include:sendgrid.net include:extsend.com ~all
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.138,18.0.676
+ definitions=2020-03-30_07:2020-03-30,2020-03-30 signatures=0
+X-Proofpoint-Spam-Reason: safe
+X-Proofpoint-Spam-Details: ID 303qhh0410 on krait.bc.edu-10000_instance1 (192.168.1.12)
+
+--0000000000006a993905a21838a2
+Content-Type: text/plain; charset="UTF-8"
+
+---------- Forwarded message ---------
+From: Johnston, Christopher <cjohnston@forsyth.org>
+Date: Wed, Mar 6, 2019 at 10:37 AM
+Subject: S. pnumo REBASE links
+To: Federico Rosconi <rosconi@bc.edu>
+
+
+Streptococcus pneumoniae TVO_1901920
+
+PacBio <http://rebase.neb.com/rebase/private/31943_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/31943_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/31943_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/31943_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/31943_details_6946.txt>
+
+Mar 3 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/31943_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901921
+
+PacBio <http://rebase.neb.com/rebase/private/31944_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/31944_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/31944_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/31944_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/31944_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/31944_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901922
+
+PacBio <http://rebase.neb.com/rebase/private/31945_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/31945_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/31945_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/31945_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/31945_details_6946.txt>
+
+Mar 3 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/31945_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901923
+
+PacBio <http://rebase.neb.com/rebase/private/31948_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/31948_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/31948_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/31948_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/31948_details_6946.txt>
+
+Mar 3 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/31948_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901924
+
+PacBio <http://rebase.neb.com/rebase/private/31949_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/31949_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/31949_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/31949_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/31949_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/31949_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901925
+
+PacBio <http://rebase.neb.com/rebase/private/31946_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/31946_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/31946_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/31946_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/31946_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/31946_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901926
+
+PacBio <http://rebase.neb.com/rebase/private/31947_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/31947_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/31947_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/31947_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/31947_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/31947_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901927
+
+PacBio <http://rebase.neb.com/rebase/private/33035_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33035_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33035_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33035_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33035_details_6946.txt>
+
+Mar 3 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33035_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901928
+
+PacBio <http://rebase.neb.com/rebase/private/33034_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33034_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33034_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33034_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33034_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33034_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901930
+
+PacBio <http://rebase.neb.com/rebase/private/33033_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33033_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33033_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33033_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33033_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33033_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901931
+
+PacBio <http://rebase.neb.com/rebase/private/33032_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33032_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33032_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33032_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33032_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33032_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901932
+
+PacBio <http://rebase.neb.com/rebase/private/33031_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33031_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33031_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33031_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33031_details_6946.txt>
+
+Mar 3 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33031_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901933
+
+PacBio <http://rebase.neb.com/rebase/private/33030_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33030_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33030_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33030_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33030_details_6946.txt>
+
+Mar 3 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33030_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901934
+
+PacBio <http://rebase.neb.com/rebase/private/33029_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33029_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33029_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33029_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33029_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33029_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901935
+
+PacBio <http://rebase.neb.com/rebase/private/33028_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33028_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33028_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33028_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33028_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33028_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901937
+
+PacBio <http://rebase.neb.com/rebase/private/33027_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33027_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33027_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33027_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33027_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33027_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901938
+
+PacBio <http://rebase.neb.com/rebase/private/33026_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33026_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33026_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33026_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33026_details_6946.txt>
+
+Mar 3 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33026_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901939
+
+PacBio <http://rebase.neb.com/rebase/private/33025_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33025_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33025_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33025_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33025_details_6946.txt>
+
+Mar 3 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33025_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901940
+
+PacBio <http://rebase.neb.com/rebase/private/33024_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33024_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33024_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33024_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33024_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33024_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901941
+
+PacBio <http://rebase.neb.com/rebase/private/33023_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33023_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33023_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33023_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33023_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33023_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901943
+
+PacBio <http://rebase.neb.com/rebase/private/33022_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33022_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33022_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33022_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33022_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33022_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901945
+
+PacBio <http://rebase.neb.com/rebase/private/33021_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33021_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33021_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33021_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33021_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33021_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901946
+
+PacBio <http://rebase.neb.com/rebase/private/33020_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33020_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33020_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33020_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33020_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33020_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901947
+
+PacBio <http://rebase.neb.com/rebase/private/33019_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33019_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33019_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33019_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33019_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33019_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901948
+
+PacBio <http://rebase.neb.com/rebase/private/33018_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33018_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33018_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33018_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33018_details_6946.txt>
+
+Mar 3 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33018_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1901949
+
+PacBio <http://rebase.neb.com/rebase/private/33017_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33017_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33017_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33017_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33017_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33017_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1902276
+
+PacBio <http://rebase.neb.com/rebase/private/33012_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33012_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33012_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33012_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33012_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33012_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_1902277
+
+PacBio <http://rebase.neb.com/rebase/private/33011_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33011_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33011_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33011_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33011_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33011_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_D39
+
+PacBio <http://rebase.neb.com/rebase/private/33015_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33015_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33015_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33015_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33015_details_6946.txt>
+
+Mar 3 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33015_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_Taiwan19F-14
+
+PacBio <http://rebase.neb.com/rebase/private/33014_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33014_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33014_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33014_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33014_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33014_update_from_6946.html>
+
+Streptococcus pneumoniae TVO_TIGR4
+
+PacBio <http://rebase.neb.com/rebase/private/33016_pacbio.html>
+
+Schematics <http://rebase.neb.com/rebase/private/33016_schematics.pdf>
+
+Genome Coordinates <http://rebase.neb.com/rebase/private/33016_report.html>
+
+Closest Neighbors
+<http://rebase.neb.com/rebase/private/33016_neighbors.html>
+
+Details <http://rebase.neb.com/rebase/private/33016_details_6946.txt>
+
+Jan 31 2019
+
+Send Update
+<http://rebase.neb.com/rebase/private/33016_update_from_6946.html>
+
+
+
+
+
+Christopher D. Johnston, Ph.D.
+
+Principal Investigator (Microbiology), The Forsyth Institute
+
+Harvard School of Dental Medicine,
+
+Department of Oral Medicine, Infection, and Immunity.
+
+Johnston Lab Website <https://johnstonlaboratory.com/>
+
+617-892-8309
+
+
+
+
+*Disclaimer*
+
+The information contained in this communication from the sender is
+confidential. It is intended solely for use by the recipient and others
+authorized to receive it. If you are not the recipient, you are hereby
+notified that any disclosure, copying, distribution or taking action in
+relation of the contents of this information is strictly prohibited and may
+be unlawful.
+
+This email has been scanned for viruses and malware, and may have been
+automatically archived by *Mimecast Ltd*, an innovator in Software as a
+Service (SaaS) for business. Providing a *safer* and *more useful* place
+for your human generated data. Specializing in; Security, archiving and
+compliance. To find out more Click Here <http://www.mimecast.com/products/>.
+
+--0000000000006a993905a21838a2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">---------- Forwarded message ---------<br>From: <strong cla=
+ss=3D"gmail_sendername" dir=3D"auto">Johnston, Christopher</strong> <span d=
+ir=3D"auto">&lt;<a href=3D"mailto:cjohnston@forsyth.org">cjohnston@forsyth.=
+org</a>&gt;</span><br>Date: Wed, Mar 6, 2019 at 10:37 AM<br>Subject: S. pnu=
+mo REBASE links<br>To: Federico Rosconi &lt;<a href=3D"mailto:rosconi@bc.ed=
+u">rosconi@bc.edu</a>&gt;<br></div><br><br>
+
+
+
+<div lang=3D"EN-US" link=3D"blue" vlink=3D"purple">
+<div class=3D"m_6444881538285683031WordSection1">
+<table border=3D"0" cellpadding=3D"0" style=3D"background:beige">
+<tbody>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901920</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31943_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31943_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31943_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31943_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/31943_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Mar 3 2019</span><span style=3D"font-family:&quo=
+t;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31943_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901921</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31944_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31944_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31944_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31944_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/31944_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31944_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901922</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31945_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31945_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31945_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31945_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/31945_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Mar 3 2019</span><span style=3D"font-family:&quo=
+t;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31945_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901923</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31948_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31948_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31948_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31948_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/31948_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Mar 3 2019</span><span style=3D"font-family:&quo=
+t;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31948_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901924</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31949_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31949_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31949_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31949_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/31949_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31949_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901925</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31946_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31946_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31946_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31946_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/31946_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31946_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901926</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31947_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31947_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31947_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31947_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/31947_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+31947_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901927</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33035_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33035_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33035_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33035_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33035_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Mar 3 2019</span><span style=3D"font-family:&quo=
+t;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33035_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901928</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33034_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33034_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33034_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33034_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33034_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33034_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901930</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33033_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33033_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33033_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33033_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33033_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33033_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901931</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33032_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33032_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33032_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33032_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33032_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33032_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901932</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33031_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33031_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33031_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33031_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33031_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Mar 3 2019</span><span style=3D"font-family:&quo=
+t;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33031_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901933</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33030_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33030_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33030_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33030_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33030_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Mar 3 2019</span><span style=3D"font-family:&quo=
+t;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33030_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901934</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33029_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33029_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33029_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33029_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33029_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33029_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901935</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33028_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33028_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33028_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33028_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33028_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33028_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901937</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33027_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33027_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33027_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33027_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33027_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33027_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901938</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33026_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33026_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33026_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33026_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33026_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Mar 3 2019</span><span style=3D"font-family:&quo=
+t;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33026_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901939</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33025_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33025_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33025_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33025_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33025_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Mar 3 2019</span><span style=3D"font-family:&quo=
+t;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33025_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901940</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33024_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33024_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33024_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33024_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33024_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33024_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901941</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33023_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33023_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33023_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33023_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33023_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33023_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901943</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33022_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33022_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33022_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33022_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33022_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33022_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901945</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33021_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33021_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33021_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33021_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33021_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33021_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901946</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33020_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33020_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33020_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33020_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33020_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33020_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901947</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33019_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33019_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33019_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33019_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33019_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33019_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901948</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33018_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33018_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33018_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33018_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33018_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Mar 3 2019</span><span style=3D"font-family:&quo=
+t;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33018_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1901949</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33017_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33017_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33017_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33017_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33017_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33017_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1902276</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33012_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33012_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33012_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33012_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33012_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33012_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_1902277</span><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></sp=
+an></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33011_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33011_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33011_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33011_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33011_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33011_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_D39</span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33015_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33015_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33015_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33015_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33015_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Mar 3 2019</span><span style=3D"font-family:&quo=
+t;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33015_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_Taiwan19F-14</span>=
+<span style=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u=
+></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33014_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33014_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33014_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33014_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33014_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33014_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Streptococcus pneumoniae TVO_TIGR4</span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33016_pacbio.html" target=3D"_blank">PacBio</a></span><span style=3D"font-f=
+amily:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33016_schematics.pdf" target=3D"_blank">Schematics</a></span><span style=3D=
+"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33016_report.html" target=3D"_blank">Genome Coordinates</a></span><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span><=
+/p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33016_neighbors.html" target=3D"_blank">Closest Neighbors</a></span><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif"><u></u><u></u></span=
+></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal" align=3D"right" style=3D"text-align:right"><span sty=
+le=3D"font-size:7.5pt;font-family:&quot;Times New Roman&quot;,serif"><a hre=
+f=3D"http://rebase.neb.com/rebase/private/33016_details_6946.txt" target=3D=
+"_blank">Details</a></span><span style=3D"font-family:&quot;Times New Roman=
+&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif">Jan 31 2019</span><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif"><u></u><u></u></span></p>
+</td>
+<td nowrap style=3D"background:white;padding:3.0pt 3.0pt 3.0pt 3.0pt">
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ti=
+mes New Roman&quot;,serif"><a href=3D"http://rebase.neb.com/rebase/private/=
+33016_update_from_6946.html" target=3D"_blank"><span style=3D"color:orange"=
+>Send Update</span></a></span><span style=3D"font-family:&quot;Times New Ro=
+man&quot;,serif"><u></u><u></u></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Times New Roman&quo=
+t;,serif">Christopher D. Johnston, Ph.D.<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Times New Roman&quo=
+t;,serif">Principal Investigator (Microbiology), The Forsyth Institute
+<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Times New Roman&quo=
+t;,serif">Harvard School of Dental Medicine,</span>
+<u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Times New Roman&quo=
+t;,serif">Department of Oral Medicine, Infection, and Immunity.</span><u></=
+u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Times New Roman&quo=
+t;,serif"><a href=3D"https://johnstonlaboratory.com/" target=3D"_blank"><sp=
+an style=3D"color:blue">Johnston Lab Website</span></a><u></u><u></u></span=
+></p>
+<p class=3D"MsoNormal"><span style=3D"font-family:&quot;Times New Roman&quo=
+t;,serif">617-892-8309<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+</div>
+
+
+<br><br><p style=3D"font-family:Verdana;font-size:10pt;color:#666666"><b>Di=
+sclaimer</b></p><p style=3D"font-family:Verdana;font-size:8pt;color:#666666=
+">The information contained in this communication from the sender is confid=
+ential. It is intended solely for use by the recipient and others authorize=
+d to receive it. If you are not the recipient, you are hereby notified that=
+ any disclosure, copying, distribution or taking action in relation of the =
+contents of this information is strictly prohibited and may be unlawful.<br=
+><br>This email has been scanned for viruses and malware, and may have been=
+ automatically archived by <b>Mimecast Ltd</b>, an innovator in Software as=
+ a Service (SaaS) for business.  Providing a <b>safer</b> and <b>more usefu=
+l</b> place for your human generated data.  Specializing in; Security, arch=
+iving and compliance. To find out more <a href=3D"http://www.mimecast.com/p=
+roducts/" target=3D"_blank">Click Here</a>.</p></div>
+</div></div>
+
+--0000000000006a993905a21838a2--
